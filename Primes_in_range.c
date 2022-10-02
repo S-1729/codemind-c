@@ -1,24 +1,37 @@
 #include<stdio.h>
-
+#include<math.h>
+int isPrime(int i);
 int main()
 {
-    int m,n,i,s,c=0;
-    scanf("%d%d",&m,&n);
-    for(m;m<=n;m++)
+    int i,n,m,c=0;
+    scanf("%d
+%d",&n,&m);
+    for(i=n;i<=m;i++)
     {
-        s=0;
-        for(i=2;i*i<=m;i++)
+        if(isPrime(i))
         {
-            if(m%i==0)
-            {
-                s=1;
-                break;
-            }
-        }
-        if(s==0 && m!=1)
-        {
-            c++;
+        c+=1;
         }
     }
     printf("%d",c);
+}
+
+int isPrime(int i)
+{
+    int j;
+    bool f=0,t=1;
+    int res=sqrt(i);
+    if(i==1)
+    {
+    return f;
+    }
+    
+    for(j=2;j<=res;j++)
+    {
+        if(i%j==0)
+        {
+        return f;
+        }
+    }
+    return t;
 }
