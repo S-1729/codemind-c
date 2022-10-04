@@ -12,28 +12,18 @@ int main()
     }
     for(int i=0;i<n;i++)
     {  
-        if(i==0||i==n-1)
-        {
         for(int j=0;j<m;j++)
         {
-          sum=sum+a[i][j];  
-        }
-        }
-        else
-        for(int j=0;j<m;j++)
-        {
-            if(j==0||j==m-1)
+            if(i==0||i==n-1||j==0||j==m-1)
             {
-                sum=sum+a[i][j];
+                continue;
             }
+            else
+            {
+                sum=sum+a[i][j];  
+            }
+ 
         }
     }
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<m;j++)
-        {
-            s=s+a[i][j];
-        }
-    }
-    printf("%d",s-sum);
+    printf("%d",sum);
 }
