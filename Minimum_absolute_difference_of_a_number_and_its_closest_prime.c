@@ -1,45 +1,39 @@
 #include<stdio.h>
 #include<math.h>
-int prime(int i)
+bool isprime(int n)
 {
-    if(i==1 || i==0)
-    return 0;
-    int result=sqrt(i),j;
-    for(j=2;j<=result;j++)
+    int i;
+    if(n==1 || n==0)
+    return false;
+    for(i=2;i<=sqrt(n);i++)
     {
-        if(i%j==0)
-        return 0;
+        if(n%i==0)
+        return false;
     }
-    return 1;
+    return true;
 }
 int main()
 {
-    int n,rem1,k,rem2,t;
-        scanf("%d",&n);
-        rem1=0;
-        while(1)
+    int n,i=0,j=0;
+    scanf("%d",&n);
+    while(true)
+    {
+        if(isprime(n+i))
         {
-            if(prime(n+rem1)==1)
             break;
-            else
-            rem1+=1;
         }
-        rem2=0;
-        while(1)
+        i+=1;
+    }
+    while(true)
+    {
+        if(isprime(n-j))
         {
-            if(prime(n-rem2)==1)
             break;
-            else
-            rem2+=1;
         }
-        if(rem1==rem2)
-        printf("%d
-",rem1);
-        else if(rem1<rem2)
-        printf("%d
-",rem1);
-        else
-        printf("%d
-",rem2);
-    
+        j+=1;
+    }
+    if(i<j)
+    printf("%d",i);
+    else
+    printf("%d",j);
 }
