@@ -1,40 +1,40 @@
 #include<stdio.h>
 #include<math.h>
-int isprime(int i)
+bool isprime(int n)
 {
-    if(i==1 || i==0)
-    return 0;
-    for(int j=2;j<=sqrt(i);j++)
+    int i;
+    if(n==1 || n==0)
+    return false;
+    for(i=2;i<=sqrt(n);i++)
     {
-        if(i%j==0)
-        return 0;
+        if(n%i==0)
+        return false;
     }
-    return 1;
+    return true;
 }
-int ispalindrome(int i)
+bool ispalindrome(int n)
 {
-    int temp=i,rev=0;
-    while(temp>0)
+    int temp=n,rev=0;
+    while(n>0)
     {
-        rev=rev*10+(temp%10);
-        temp/=10;
+        rev=rev*10+(n%10);
+        n/=10;
     }
-    if(i==rev)
-    return 1;
-    return 0;
+    if(rev==temp)
+    return true;
+    return false;
 }
 int main()
 {
-    int n,inc=1;
+    int n,i=0;
     scanf("%d",&n);
     while(true)
     {
-        if(isprime(n+inc) && ispalindrome(n+inc))
+        i+=1;
+        if(isprime(n+i) && ispalindrome(n+i))
         {
-            printf("%d",n+inc);
+            printf("%d",n+i);
             break;
         }
-        else
-        inc++;
     }
 }
